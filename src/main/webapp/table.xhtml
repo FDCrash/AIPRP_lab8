@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>МДЕЕЕЕ</title>
+</h:head>
+<h:body>
+    <h2> ЭТО НЕ БД</h2>
+    <h:form>
+        <div>
+            <h:outputLabel value="Name"/>
+            <h:inputText value="#{EJB_LAB.newEmployee.name}"/>
+        </div>
+        <div>
+            <h:outputLabel value="Department"/>
+            <h:inputText  value="#{EJB_LAB.newEmployee.department}"/>
+        </div>
+        <div>
+            <h:outputLabel value="Address"/>
+            <h:inputText value="#{EJB_LAB.newEmployee.address}"/>
+        </div>
+        <div>
+            <h:outputLabel value="Wage"/>
+            <h:inputText value="#{EJB_LAB.newEmployee.wage}"/>
+        </div>
+        <h:commandButton value="Добавить" action="#{EJB_LAB.addEmployee}">
+        </h:commandButton>
+        <h:dataTable value="#{EJB_LAB.employees}" var="employee">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
+                <h:outputText value="#{employee.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Department"/>
+                </f:facet>
+                <h:outputText value="#{employee.department}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Address"/>
+                </f:facet>
+                <h:outputText value="#{employee.address}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Wage"/>
+                </f:facet>
+                <h:outputText value="#{employee.wage}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Действие"/>
+                </f:facet>
+                <h:commandButton value="Удалить" action="#{EJB_LAB.deleteEmployee(employee)}">
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>
